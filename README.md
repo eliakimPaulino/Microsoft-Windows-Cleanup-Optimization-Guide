@@ -6,14 +6,598 @@ Complete Windows maintenance, cleanup, repair, and optimization guide for gaming
 
 # Antes de começar
 
-- Feche programas abertos.
-- Crie um ponto de restauração do Windows.
-- Atualize o Windows Update antes da manutenção.
-- Reinicie o PC se ele estiver ligado há muitos dias.
+- Fechar programas abertos.
+- Criar um ponto de restauração do Windows.
+- Atualizar o Windows Update antes da manutenção.
+- Reiniciar o PC se ele estiver ligado há muitos dias.
+
+---
+# 🚀 Seção 1 - Como Desativar Serviços Desnecessários do Windows e Melhorar o Desempenho
+
+> Este guia mostra como reduzir o consumo de RAM, CPU e processos em segundo plano no Windows desativando serviços desnecessários.
+
+---
+### Benefícios:
+- ✅ Menor uso de RAM
+- ✅ Menor uso de CPU
+- ✅ Menos processos rodando
+- ✅ Sistema mais rápido
+- ✅ Menos travamentos
+- 
+---
+
+# 🛡️ PASSO 1 — Criar um ponto de restauração
+
+## Abrindo a ferramenta
+
+1. Abra o menu **Iniciar**
+2. Pesquise:
+
+```text
+Criar ponto de restauração
+```
+
+3. Abra o aplicativo
 
 ---
 
-# 1. Limpeza básica de arquivos temporários
+## Ativando a proteção do sistema
+
+Na janela aberta:
+
+1. Selecione o disco onde o Windows está instalado (`C:`)
+2. Clique em:
+
+```text
+Configurar
+```
+
+3. Marque:
+
+```text
+Ativar proteção do sistema
+```
+
+4. Em **Uso máximo**, selecione:
+- Entre `4%` e `5%`
+
+5. Clique em:
+- `Aplicar`
+- `OK`
+
+---
+
+## Criando o ponto de restauração
+
+1. Clique em:
+
+```text
+Criar
+```
+
+2. Digite um nome:
+
+```text
+Antes da otimização
+```
+
+3. Clique novamente em:
+
+```text
+Criar
+```
+
+4. Aguarde finalizar
+
+---
+
+# ⚙️ PASSO 2 — Abrir os Serviços do Windows
+
+## Método 1 — Pelo menu iniciar
+
+1. Abra o menu **Iniciar**
+2. Pesquise:
+
+```text
+Serviços
+```
+
+3. Abra o aplicativo
+
+---
+
+## Método 2 — Pelo Gerenciador de Tarefas
+
+1. Pressione:
+
+```text
+Ctrl + Shift + Esc
+```
+
+2. Vá na aba:
+
+```text
+Serviços
+```
+
+3. Clique nos três pontinhos (`⋮`)
+4. Clique em:
+
+```text
+Abrir Serviços
+```
+
+---
+
+# 📋 PASSO 3 — Organizar os serviços
+
+Para facilitar:
+
+1. Clique na coluna:
+
+```text
+Nome
+```
+
+Assim os serviços ficarão em ordem alfabética.
+
+---
+
+# 🧠 PASSO 4 — Verificar a versão do Windows
+
+1. Pressione:
+
+```text
+Win + R
+```
+
+2. Digite:
+
+```text
+winver
+```
+
+3. Pressione `Enter`
+
+### Exemplo:
+- Windows 11 Pro
+- Versão 24H2
+
+---
+
+# 🔥 PASSO 5 — Desativar serviços desnecessários
+
+---
+
+# 1️⃣ Cartão Inteligente
+
+## Função
+Gerencia cartões inteligentes usados para autenticação.
+
+## Pode desativar se:
+- Você NÃO usa crachá corporativo
+- Você NÃO usa autenticação por cartão
+
+## Configuração
+
+| Atual | Novo |
+|---|---|
+| Manual | Desativado |
+
+### Como aplicar
+1. Clique duas vezes no serviço
+2. Em **Tipo de inicialização**, escolha:
+
+```text
+Desativado
+```
+
+3. Clique em:
+- `Aplicar`
+- `OK`
+
+---
+
+# 2️⃣ Configuração da Área de Trabalho Remota
+
+## Função
+Gerencia conexões remotas ao computador.
+
+## Pode desativar se:
+- Você NÃO acessa o PC remotamente
+
+## Configuração
+
+| Atual | Novo |
+|---|---|
+| Automático | Desativado |
+
+### Como aplicar
+1. Clique duas vezes no serviço
+2. Altere para:
+
+```text
+Desativado
+```
+
+3. Clique em:
+
+```text
+Parar
+```
+
+4. Depois:
+- `Aplicar`
+- `OK`
+
+---
+
+# 3️⃣ Controles Parentais
+
+## Função
+Controle de uso do computador para crianças.
+
+## Pode desativar se:
+- Você não usa controle parental
+
+## Configuração
+
+| Atual | Novo |
+|---|---|
+| Automático | Desativado |
+
+### Aplicação
+1. Alterar para:
+
+```text
+Desativado
+```
+
+2. Clique em:
+- `Parar`
+- `Aplicar`
+- `OK`
+
+---
+
+# 4️⃣ Diagnóstico de Execução de Serviços
+
+## Função
+Executa diagnósticos automáticos do sistema.
+
+## Configuração
+
+| Atual | Novo |
+|---|---|
+| Manual | Desativado |
+
+### Aplicação
+1. Altere para:
+
+```text
+Desativado
+```
+
+2. Clique em:
+- `Aplicar`
+- `OK`
+
+---
+
+# 5️⃣ Experiências do Usuário Conectado e Telemetria
+
+## Função
+Coleta e envia dados de uso para a Microsoft.
+
+## Benefícios ao desativar
+- Mais privacidade
+- Menor uso de recursos
+
+## Configuração
+
+| Atual | Novo |
+|---|---|
+| Automático | Desativado |
+
+### Aplicação
+1. Altere para:
+
+```text
+Desativado
+```
+
+2. Clique em:
+- `Parar`
+- `Aplicar`
+- `OK`
+
+---
+
+# 6️⃣ Gerenciador de Autenticação Xbox Live
+
+## Função
+Serviços relacionados ao Xbox.
+
+## Pode desativar se:
+- Você NÃO usa Xbox no PC
+
+## Configuração
+
+| Novo |
+|---|
+| Desativado |
+
+### Aplicação
+1. Altere para:
+
+```text
+Desativado
+```
+
+2. Clique em:
+- `Parar`
+- `Aplicar`
+- `OK`
+
+---
+
+# 7️⃣ Serviço de Geolocalização
+
+## Função
+Fornece localização para aplicativos.
+
+## Pode desativar se:
+- Você não usa aplicativos de localização
+
+## Configuração
+
+| Atual | Novo |
+|---|---|
+| Manual | Desativado |
+
+### Aplicação
+1. Altere para:
+
+```text
+Desativado
+```
+
+2. Clique em:
+- `Parar`
+- `Aplicar`
+- `OK`
+
+---
+
+# 8️⃣ Serviço de Hotspot Móvel
+
+## Função
+Compartilha internet do PC via Wi-Fi.
+
+## Pode desativar se:
+- Você não usa hotspot
+
+## Configuração
+
+| Novo |
+|---|
+| Desativado |
+
+---
+
+# 9️⃣ Serviço de Relatório de Erro do Windows
+
+## Função
+Envia relatórios de erro para a Microsoft.
+
+## Benefícios
+- Menor uso de recursos
+
+## Configuração
+
+| Novo |
+|---|
+| Desativado |
+
+---
+
+# 🔟 Serviço de Suporte a Bluetooth
+
+## Função
+Gerencia dispositivos Bluetooth.
+
+## Pode desativar se:
+- Você NÃO usa Bluetooth
+
+## Configuração
+
+| Novo |
+|---|
+| Desativado |
+
+---
+
+# 1️⃣1️⃣ SysMain (Superfetch)
+
+## Função
+Pré-carrega aplicativos na memória RAM.
+
+## Problemas comuns
+- HD em 100%
+- Alto uso de disco
+- Lentidão
+- Travamentos
+
+## Recomendado desativar se:
+- Seu PC está lento
+- O disco fica constantemente em 100%
+
+## Configuração
+
+| Novo |
+|---|
+| Desativado |
+
+### Aplicação
+1. Altere para:
+
+```text
+Desativado
+```
+
+2. Clique em:
+- `Parar`
+- `Aplicar`
+- `OK`
+
+---
+
+# 🔄 PASSO 6 — Reiniciar o computador
+
+Depois de finalizar todas as alterações:
+
+1. Reinicie o computador
+2. Aguarde o Windows iniciar normalmente
+
+---
+
+# 📊 PASSO 7 — Verificar o resultado
+
+## Abrir o Gerenciador de Tarefas
+
+Pressione:
+
+```text
+Ctrl + Shift + Esc
+```
+
+---
+
+## Verificando os processos
+
+Na aba **Processos**, veja quantos processos estão em execução.
+
+### Exemplo do vídeo:
+- Antes: `147`
+- Depois: `81`
+
+---
+
+# ✅ Melhorias esperadas
+
+Após a otimização você pode perceber:
+
+- 🚀 Inicialização mais rápida
+- 🚀 Menor uso de RAM
+- 🚀 Menor uso de CPU
+- 🚀 Menos processos em segundo plano
+- 🚀 Sistema mais fluido
+- 🚀 Menos travamentos
+
+---
+
+# ⚠️ Serviços que você NÃO deve desativar
+
+Evite desativar:
+- Windows Update
+- Áudio do Windows
+- Plug and Play
+- RPC
+- Serviços de rede
+- Serviços gráficos
+- Serviços de drivers
+
+---
+
+# 💡 Dicas extras de otimização
+
+## Desative programas da inicialização
+
+1. Abra o Gerenciador de Tarefas
+2. Vá em:
+
+```text
+Inicializar Aplicativos
+```
+
+3. Desative programas desnecessários
+
+---
+
+## Limpe arquivos temporários
+
+Pressione:
+
+```text
+Win + R
+```
+
+Digite:
+
+```text
+temp
+```
+
+E apague os arquivos.
+
+Repita com:
+
+```text
+%temp%
+```
+
+---
+
+## Use SSD
+Se ainda usa HD, trocar para SSD traz MUITO mais desempenho.
+
+---
+
+## Mantenha drivers atualizados
+
+Principalmente:
+- Placa de vídeo
+- Chipset
+- Rede
+
+---
+
+# 🧯 Como restaurar caso algo dê errado
+
+1. Pesquise:
+
+```text
+Criar ponto de restauração
+```
+
+2. Clique em:
+
+```text
+Restauração do Sistema
+```
+
+3. Escolha o ponto criado anteriormente
+
+---
+
+# 🎯 Conclusão
+
+Desativar serviços desnecessários pode reduzir significativamente o consumo de recursos do Windows e melhorar a fluidez do sistema.
+
+Os ganhos variam dependendo:
+- da versão do Windows
+- do hardware
+- da quantidade de programas instalados
+
+Mas, no geral, o sistema tende a ficar:
+- mais leve
+- mais rápido
+- mais responsivo
+
+---
+---
+
+# Seção 2 - Limpeza básica de arquivos temporários
 
 ## TEMP
 
@@ -520,606 +1104,5 @@ Para aplicar:
 - Registro
 - Power Plan
 - Cache rebuild
-
----
-
-# 🚀 Guia Completo — Como Desativar Serviços Desnecessários do Windows e Melhorar o Desempenho
-
-> Este guia mostra como reduzir o consumo de RAM, CPU e processos em segundo plano no Windows desativando serviços desnecessários.
-
----
-
-# 📌 Resultado mostrado no vídeo
-
-| Antes | Depois |
-|---|---|
-| 147 processos | 81 processos |
-
-### Benefícios:
-- ✅ Menor uso de RAM
-- ✅ Menor uso de CPU
-- ✅ Menos processos rodando
-- ✅ Sistema mais rápido
-- ✅ Menos travamentos
-
----
-
-# ⚠️ IMPORTANTE — LEIA ANTES
-
-Antes de alterar qualquer serviço do Windows:
-
-- Crie um ponto de restauração
-- Não desative serviços que você não conhece
-- Alguns serviços podem não existir dependendo da sua versão do Windows
-
----
-
-# 🛡️ PASSO 1 — Criar um ponto de restauração
-
-## Abrindo a ferramenta
-
-1. Abra o menu **Iniciar**
-2. Pesquise:
-
-```text
-Criar ponto de restauração
-```
-
-3. Abra o aplicativo
-
----
-
-## Ativando a proteção do sistema
-
-Na janela aberta:
-
-1. Selecione o disco onde o Windows está instalado (`C:`)
-2. Clique em:
-
-```text
-Configurar
-```
-
-3. Marque:
-
-```text
-Ativar proteção do sistema
-```
-
-4. Em **Uso máximo**, selecione:
-- Entre `4%` e `5%`
-
-5. Clique em:
-- `Aplicar`
-- `OK`
-
----
-
-## Criando o ponto de restauração
-
-1. Clique em:
-
-```text
-Criar
-```
-
-2. Digite um nome:
-
-```text
-Antes da otimização
-```
-
-3. Clique novamente em:
-
-```text
-Criar
-```
-
-4. Aguarde finalizar
-
----
-
-# ⚙️ PASSO 2 — Abrir os Serviços do Windows
-
-## Método 1 — Pelo menu iniciar
-
-1. Abra o menu **Iniciar**
-2. Pesquise:
-
-```text
-Serviços
-```
-
-3. Abra o aplicativo
-
----
-
-## Método 2 — Pelo Gerenciador de Tarefas
-
-1. Pressione:
-
-```text
-Ctrl + Shift + Esc
-```
-
-2. Vá na aba:
-
-```text
-Serviços
-```
-
-3. Clique nos três pontinhos (`⋮`)
-4. Clique em:
-
-```text
-Abrir Serviços
-```
-
----
-
-# 📋 PASSO 3 — Organizar os serviços
-
-Para facilitar:
-
-1. Clique na coluna:
-
-```text
-Nome
-```
-
-Assim os serviços ficarão em ordem alfabética.
-
----
-
-# 🧠 PASSO 4 — Verificar a versão do Windows
-
-1. Pressione:
-
-```text
-Win + R
-```
-
-2. Digite:
-
-```text
-winver
-```
-
-3. Pressione `Enter`
-
-### Exemplo do vídeo:
-- Windows 11 Pro
-- Versão 24H2
-
----
-
-# 🔥 PASSO 5 — Desativar serviços desnecessários
-
----
-
-# 1️⃣ Cartão Inteligente
-
-## Função
-Gerencia cartões inteligentes usados para autenticação.
-
-## Pode desativar se:
-- Você NÃO usa crachá corporativo
-- Você NÃO usa autenticação por cartão
-
-## Configuração
-
-| Atual | Novo |
-|---|---|
-| Manual | Desativado |
-
-### Como aplicar
-1. Clique duas vezes no serviço
-2. Em **Tipo de inicialização**, escolha:
-
-```text
-Desativado
-```
-
-3. Clique em:
-- `Aplicar`
-- `OK`
-
----
-
-# 2️⃣ Configuração da Área de Trabalho Remota
-
-## Função
-Gerencia conexões remotas ao computador.
-
-## Pode desativar se:
-- Você NÃO acessa o PC remotamente
-
-## Configuração
-
-| Atual | Novo |
-|---|---|
-| Automático | Desativado |
-
-### Como aplicar
-1. Clique duas vezes no serviço
-2. Altere para:
-
-```text
-Desativado
-```
-
-3. Clique em:
-
-```text
-Parar
-```
-
-4. Depois:
-- `Aplicar`
-- `OK`
-
----
-
-# 3️⃣ Controles Parentais
-
-## Função
-Controle de uso do computador para crianças.
-
-## Pode desativar se:
-- Você não usa controle parental
-
-## Configuração
-
-| Atual | Novo |
-|---|---|
-| Automático | Desativado |
-
-### Aplicação
-1. Alterar para:
-
-```text
-Desativado
-```
-
-2. Clique em:
-- `Parar`
-- `Aplicar`
-- `OK`
-
----
-
-# 4️⃣ Diagnóstico de Execução de Serviços
-
-## Função
-Executa diagnósticos automáticos do sistema.
-
-## Configuração
-
-| Atual | Novo |
-|---|---|
-| Manual | Desativado |
-
-### Aplicação
-1. Altere para:
-
-```text
-Desativado
-```
-
-2. Clique em:
-- `Aplicar`
-- `OK`
-
----
-
-# 5️⃣ Experiências do Usuário Conectado e Telemetria
-
-## Função
-Coleta e envia dados de uso para a Microsoft.
-
-## Benefícios ao desativar
-- Mais privacidade
-- Menor uso de recursos
-
-## Configuração
-
-| Atual | Novo |
-|---|---|
-| Automático | Desativado |
-
-### Aplicação
-1. Altere para:
-
-```text
-Desativado
-```
-
-2. Clique em:
-- `Parar`
-- `Aplicar`
-- `OK`
-
----
-
-# 6️⃣ Gerenciador de Autenticação Xbox Live
-
-## Função
-Serviços relacionados ao Xbox.
-
-## Pode desativar se:
-- Você NÃO usa Xbox no PC
-
-## Configuração
-
-| Novo |
-|---|
-| Desativado |
-
-### Aplicação
-1. Altere para:
-
-```text
-Desativado
-```
-
-2. Clique em:
-- `Parar`
-- `Aplicar`
-- `OK`
-
----
-
-# 7️⃣ Serviço de Geolocalização
-
-## Função
-Fornece localização para aplicativos.
-
-## Pode desativar se:
-- Você não usa aplicativos de localização
-
-## Configuração
-
-| Atual | Novo |
-|---|---|
-| Manual | Desativado |
-
-### Aplicação
-1. Altere para:
-
-```text
-Desativado
-```
-
-2. Clique em:
-- `Parar`
-- `Aplicar`
-- `OK`
-
----
-
-# 8️⃣ Serviço de Hotspot Móvel
-
-## Função
-Compartilha internet do PC via Wi-Fi.
-
-## Pode desativar se:
-- Você não usa hotspot
-
-## Configuração
-
-| Novo |
-|---|
-| Desativado |
-
----
-
-# 9️⃣ Serviço de Relatório de Erro do Windows
-
-## Função
-Envia relatórios de erro para a Microsoft.
-
-## Benefícios
-- Menor uso de recursos
-
-## Configuração
-
-| Novo |
-|---|
-| Desativado |
-
----
-
-# 🔟 Serviço de Suporte a Bluetooth
-
-## Função
-Gerencia dispositivos Bluetooth.
-
-## Pode desativar se:
-- Você NÃO usa Bluetooth
-
-## Configuração
-
-| Novo |
-|---|
-| Desativado |
-
----
-
-# 1️⃣1️⃣ SysMain (Superfetch)
-
-## Função
-Pré-carrega aplicativos na memória RAM.
-
-## Problemas comuns
-- HD em 100%
-- Alto uso de disco
-- Lentidão
-- Travamentos
-
-## Recomendado desativar se:
-- Seu PC está lento
-- O disco fica constantemente em 100%
-
-## Configuração
-
-| Novo |
-|---|
-| Desativado |
-
-### Aplicação
-1. Altere para:
-
-```text
-Desativado
-```
-
-2. Clique em:
-- `Parar`
-- `Aplicar`
-- `OK`
-
----
-
-# 🔄 PASSO 6 — Reiniciar o computador
-
-Depois de finalizar todas as alterações:
-
-1. Reinicie o computador
-2. Aguarde o Windows iniciar normalmente
-
----
-
-# 📊 PASSO 7 — Verificar o resultado
-
-## Abrir o Gerenciador de Tarefas
-
-Pressione:
-
-```text
-Ctrl + Shift + Esc
-```
-
----
-
-## Verificando os processos
-
-Na aba **Processos**, veja quantos processos estão em execução.
-
-### Exemplo do vídeo:
-- Antes: `147`
-- Depois: `81`
-
----
-
-# ✅ Melhorias esperadas
-
-Após a otimização você pode perceber:
-
-- 🚀 Inicialização mais rápida
-- 🚀 Menor uso de RAM
-- 🚀 Menor uso de CPU
-- 🚀 Menos processos em segundo plano
-- 🚀 Sistema mais fluido
-- 🚀 Menos travamentos
-
----
-
-# ⚠️ Serviços que você NÃO deve desativar
-
-Evite desativar:
-- Windows Update
-- Áudio do Windows
-- Plug and Play
-- RPC
-- Serviços de rede
-- Serviços gráficos
-- Serviços de drivers
-
----
-
-# 💡 Dicas extras de otimização
-
-## Desative programas da inicialização
-
-1. Abra o Gerenciador de Tarefas
-2. Vá em:
-
-```text
-Inicializar Aplicativos
-```
-
-3. Desative programas desnecessários
-
----
-
-## Limpe arquivos temporários
-
-Pressione:
-
-```text
-Win + R
-```
-
-Digite:
-
-```text
-temp
-```
-
-E apague os arquivos.
-
-Repita com:
-
-```text
-%temp%
-```
-
----
-
-## Use SSD
-Se ainda usa HD, trocar para SSD traz MUITO mais desempenho.
-
----
-
-## Mantenha drivers atualizados
-
-Principalmente:
-- Placa de vídeo
-- Chipset
-- Rede
-
----
-
-# 🧯 Como restaurar caso algo dê errado
-
-1. Pesquise:
-
-```text
-Criar ponto de restauração
-```
-
-2. Clique em:
-
-```text
-Restauração do Sistema
-```
-
-3. Escolha o ponto criado anteriormente
-
----
-
-# 🎯 Conclusão
-
-Desativar serviços desnecessários pode reduzir significativamente o consumo de recursos do Windows e melhorar a fluidez do sistema.
-
-Os ganhos variam dependendo:
-- da versão do Windows
-- do hardware
-- da quantidade de programas instalados
-
-Mas, no geral, o sistema tende a ficar:
-- mais leve
-- mais rápido
-- mais responsivo
 
 ---
