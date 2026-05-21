@@ -1,208 +1,524 @@
-# Microsoft-Windows-Cleanup-Optimization-Guide
-Complete Windows maintenance, cleanup, repair, and optimization guide with temporary file cleanup, DISM/SFC repair, startup optimization, service tuning, registry tweaks, driver diagnostics, and performance improvements for gaming and daily use.
+# Microsoft Windows Cleanup & Optimization Guide
 
-Clean them ALL!
+Complete Windows maintenance, cleanup, repair, and optimization guide for gaming and daily use.
 
-Fechar programas e criar ponto de restauração
-criar um ponto de restauração do Windows
-atualizar Windows Update antes da manutenção
-reiniciar o PC antes de começar se estiver ligado há muitos dias
+---
 
-1. Limpeza básica de arquivos temporários
-win+r temp [delete all]
-win+r %temp% [delete all]
-win+r prefetch [delete all]
+# Antes de começar
 
-1. Limpeza do sistema Windows
-cmd cleanmgr
+- Feche programas abertos.
+- Crie um ponto de restauração do Windows.
+- Atualize o Windows Update antes da manutenção.
+- Reinicie o PC se ele estiver ligado há muitos dias.
 
-Execute como administrador e limpe:
+---
 
-Windows Update Cleanup
-Temporary Files
-Delivery Optimization
-DirectX Shader Cache
-Recycle Bin
+# 1. Limpeza básica de arquivos temporários
 
+## TEMP
 
+```bat
+temp
+```
 
-1. Reparação da imagem do Windows (DISM primeiro)
-O DISM corrige a imagem do Windows usada pelo SFC.
+Apague tudo.
 
-cmd DISM /Online /Cleanup-Image /RestoreHealth
+## %TEMP%
 
+```bat
+%temp%
+```
 
+Apague tudo.
 
-1. Verificação de integridade do sistema (SFC depois)
+## PREFETCH
 
-cmd sfc /scannow
-1. Desativar programas de inicialização
-cmd taskmgr
+```bat
+prefetch
+```
 
-Ir em Inicializar e Desativar programas desnecessários. Mas NUNCA:
-Driver NVIDIA
-AMD
-Intel
-Windows Security
-TouchPad
-Audio
-1. Desativar serviços desnecessários
-cmd services.msc
-sysmain
-fax
-print spooler
-Xbox
-Windows search
-remote registry
-bluetooth
-connected user experiences and telemetry
+Apague tudo.
 
-OBS: Pode desativar sem muito risco:
-• Fax
-• Xbox
-• Remote Registry
-• Connected User Experiences and Telemetry
+---
 
-Melhor deixar MANUAL ao invés de desativado:
-• Bluetooth → apenas se realmente não usa
-• Print Spooler → se usa impressora, NÃO desative
-• Windows Search → desativar pode piorar busca/explorer
-• SysMain → bom testar; em SSD moderno às vezes não ajuda desativar
-1. Remover aplicativos desnecessários
-cmd winget list
-cmd winget list app_name_sort_name
-cmd winget uninstall PROGRAM
-[if there's duplicate names, use the --id property]
-1. Ativar Ultimate Performance
-cmd powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
+# 2. Limpeza do sistema Windows
+
+Execute como Administrador:
+
+```bat
+cleanmgr
+```
+
+Marque:
+
+- Windows Update Cleanup
+- Temporary Files
+- Delivery Optimization Files
+- DirectX Shader Cache
+- Recycle Bin
+
+---
+
+# 3. Reparação da imagem do Windows (DISM)
+
+```bat
+DISM /Online /Cleanup-Image /RestoreHealth
+```
+
+---
+
+# 4. Verificação de integridade do sistema (SFC)
+
+```bat
+sfc /scannow
+```
+
+---
+
+# 5. Desativar programas de inicialização
+
+Abrir:
+
+```bat
+taskmgr
+```
+
+Ir em:
+
+```text
+Inicializar
+```
+
+Desativar programas desnecessários.
+
+## NÃO desative:
+
+- NVIDIA Drivers
+- AMD Drivers
+- Intel Drivers
+- Windows Security
+- Drivers de áudio
+- TouchPad
+
+---
+
+# 6. Desativar serviços desnecessários
+
+Abrir:
+
+```bat
+services.msc
+```
+
+## Serviços que podem ser desativados com baixo risco
+
+- Fax
+- Xbox Services
+- Remote Registry
+- Connected User Experiences and Telemetry
+
+## Melhor deixar como MANUAL
+
+- Bluetooth → apenas se não usa
+- Print Spooler → não desative se usa impressora
+- Windows Search → pode piorar pesquisas
+- SysMain → testar antes; SSD moderno pode não precisar
+
+---
+
+# 7. Remover aplicativos desnecessários
+
+## Listar aplicativos
+
+```bat
+winget list
+```
+
+## Pesquisar aplicativo
+
+```bat
+winget list nome_do_programa
+```
+
+## Desinstalar
+
+```bat
+winget uninstall PROGRAMA
+```
+
+## Se houver nomes duplicados
+
+```bat
+winget uninstall --id ID_DO_PROGRAMA
+```
+
+---
+
+# 8. Ativar Ultimate Performance
+
+```bat
+powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
+```
 
 Depois:
-abrir opções de energia
-selecionar “Ultimate Performance”
 
-1. Otimizações de registro
-cmd reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" /v NetworkThrottlingIndex /t REG_DWORD /d 4294967295 /f
+```text
+Painel de Controle → Opções de Energia
+```
 
-cmd reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" /v SystemResponsiveness /t REG_DWORD /d 0 /f
+Selecionar:
 
-cmd reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl" /v Win32PrioritySeparation /t REG_DWORD /d 38 /f
+```text
+Ultimate Performance
+```
 
-cmd reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 0 /f
+---
 
-Observações sobre essas otimizações:
-NetworkThrottlingIndex
-Boa para:
-• jogos online
-• baixa latência
+# 9. Otimizações de Registro
 
-SystemResponsiveness
+## Network Throttling
+
+```bat
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" /v NetworkThrottlingIndex /t REG_DWORD /d 4294967295 /f
+```
+
+## System Responsiveness
+
+```bat
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" /v SystemResponsiveness /t REG_DWORD /d 0 /f
+```
+
+## Win32 Priority Separation
+
+```bat
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl" /v Win32PrioritySeparation /t REG_DWORD /d 38 /f
+```
+
+## Telemetria
+
+```bat
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 0 /f
+```
+
+---
+
+# Observações importantes
+
+## NetworkThrottlingIndex
+
 Pode ajudar em:
-• games
-• foreground priority
 
-Win32PrioritySeparation
-• Muito usado em tweaks gamer.
+- Jogos online
+- Redução de latência
 
-AllowTelemetry
-• Reduz telemetria.
+## SystemResponsiveness
 
-Importante:
+Pode ajudar em:
+
+- Games
+- Prioridade para aplicações em foreground
+
+## Win32PrioritySeparation
+
+Muito usado em tweaks gamer.
+
+## AllowTelemetry
+
+Reduz telemetria do Windows.
+
 Pode afetar:
-• Xbox services
-• algumas métricas Windows
-• certos recursos de diagnóstico
 
-Reinicialização FINAL
-Após tudo, REINICIAR.
-Importante para:
-• aplicar serviços
-• registro
-• power plan
-• cache rebuild
+- Xbox Services
+- Diagnósticos
+- Recursos do Windows
 
-EXTRAS
+---
 
-Verificar disco:
+# 10. Reinicialização FINAL
+
+Reinicie o PC após tudo.
+
+Importante para aplicar:
+
+- Serviços
+- Registro
+- Power Plan
+- Cache rebuild
+
+---
+
+# EXTRAS
+
+# Verificar disco
+
+```bat
 chkdsk /scan
+```
 
-Ver drivers instalados
+---
+
+# Ver drivers instalados
+
+## Lista simples
+
+```bat
 driverquery
-driverquery /v (detalhado)
-driverquery /v > C:\drivers.txt (exportar para txt)
+```
 
-Ver versão dos drivers via WMIC
+## Lista detalhada
 
+```bat
+driverquery /v
+```
+
+## Exportar para TXT
+
+```bat
+driverquery /v > C:\drivers.txt
+```
+
+---
+
+# Ver versões dos drivers
+
+## Nome + versão
+
+```bat
 wmic path win32_pnpsigneddriver get deviceName,driverVersion
+```
 
+## Nome + versão + fabricante
+
+```bat
 wmic path win32_pnpsigneddriver get deviceName,driverVersion,manufacturer
+```
 
-Ver dispositivos com problema
+---
+
+# Ver dispositivos com problema
+
+```bat
 pnputil /enum-devices /problem
+```
 
-Se aparecer algo:
-• driver faltando
-• corrompido
-• conflito
+Pode identificar:
 
-Ver todos os drivers do sistema
+- Drivers faltando
+- Drivers corrompidos
+- Conflitos
+
+---
+
+# Ver todos os drivers do sistema
+
+```bat
 pnputil /enum-drivers
+```
 
-Procurar drivers pelo Windows Update (melhor método nativo)
+---
 
+# Atualizar drivers via Windows Update
+
+## Instalar módulo
+
+```powershell
 Install-Module PSWindowsUpdate
+```
 
+## Procurar atualizações
+
+```powershell
 Get-WindowsUpdate
+```
 
+## Instalar atualizações
+
+```powershell
 Install-WindowsUpdate
+```
 
-Comandos úteis para identificar hardware
+---
+
+# Ferramentas úteis
+
+## Informações completas do sistema
+
+```bat
 msinfo32
+```
+
+## Diagnóstico DirectX/GPU
+
+```bat
 dxdiag
+```
 
-Melhor sequência prática
-1. pnputil /enum-devices /problem
-2. Windows Update
-3. GPU official updater
-4. chipset/site fabricante
-5. driverquery /v
+---
 
-N A V E G A D O R CHROME
+# Melhor sequência prática
 
-1. Ativar a Economia de Memória
+1. Verificar dispositivos com problema:
 
-Essa função coloca abas inativas em "suspensão", economizando muita memória RAM e deixando o PC mais fluido.
-- Abra o Chrome e clique nos três pontinhos no canto superior direito.
-- Vá em Configurações.No menu lateral esquerdo, clique em Desempenho.
-- Ative a Economia de memória. Pode escolher o nível entre "Equilibrada" ou "Máximo".
+```bat
+pnputil /enum-devices /problem
+```
 
-2. Desativar aplicativos em segundo plano
+2. Atualizar Windows Update
 
-Evita que o navegador continue rodando e consumindo recursos mesmo depois que você o fecha.
-- Configurações, clique em Sistema no menu lateral esquerdo.
-- Desative a opção Executar aplicativos em segundo plano quando o Google Chrome estiver fechado.
+3. Atualizar GPU pelo software oficial
 
-3. Remover extensões que você não usa
+- NVIDIA App
+- AMD Adrenalin
+- Intel Driver Assistant
 
-As extensões ficam rodando o tempo todo e pesam bastante no navegador.
-- Acesse a página chrome://extensions/ diretamente na barra de pesquisa.
-- Analise sua lista e clique em Remover em todas as extensões que não são essenciais para você.
+4. Atualizar chipset pelo site da fabricante
 
-4. Limpar o cache e dados de navegação
+5. Revisar drivers:
 
-Arquivos temporários acumulados podem deixar o carregamento lento.
+```bat
+driverquery /v
+```
 
-- Pressione as teclas Ctrl + Shift + Del no seu teclado.
-- Em "Período", selecione Todo o período.
-- Marque apenas Imagens e arquivos armazenados em cache e Cookies e outros dados do site (evite apagar senhas, a menos que necessário).
-- Clique em Limpar dados.
+---
 
-5. Ajustar a Aceleração de Hardware
+# Google Chrome Optimization
 
-- Vá em Configurações > Sistema.
-- Se você tem um PC mais simples ou usa apenas placa de vídeo integrada, desative a Usar aceleração gráfica quando disponível. 
-- Se você possui uma placa de vídeo dedicada (como NVIDIA ou AMD), deixe essa opção ativada para melhorar o desempenho.
+# 1. Ativar Economia de Memória
 
-6. Atualizar o navegador
+```text
+Configurações → Desempenho → Economia de memória
+```
 
-Manter o Chrome na versão mais recente corrige falhas de segurança e melhora o desempenho.
-- Vá em Configurações > Ajuda (no menu lateral) > Sobre o Google Chrome para verificar se há atualizações.
+Usar:
+
+- Equilibrada
+- Máximo
+
+---
+
+# 2. Desativar apps em segundo plano
+
+```text
+Configurações → Sistema
+```
+
+Desativar:
+
+```text
+Executar aplicativos em segundo plano quando o Google Chrome estiver fechado
+```
+
+---
+
+# 3. Remover extensões desnecessárias
+
+Abrir:
+
+```text
+chrome://extensions/
+```
+
+Remover extensões que não usa.
+
+---
+
+# 4. Limpar cache do Chrome
+
+Atalho:
+
+```text
+Ctrl + Shift + Del
+```
+
+Selecionar:
+
+- Todo o período
+- Imagens e arquivos armazenados em cache
+- Cookies e outros dados do site
+
+Evite apagar senhas sem necessidade.
+
+---
+
+# 5. Ajustar aceleração de hardware
+
+```text
+Configurações → Sistema
+```
+
+## Recomendações
+
+### GPU dedicada (NVIDIA/AMD)
+
+Deixar ativado.
+
+### GPU integrada / PC simples
+
+Testar desativado.
+
+---
+
+# 6. Atualizar Chrome
+
+```text
+Configurações → Ajuda → Sobre o Google Chrome
+```
+
+---
+
+# SSD
+
+## Verificar TRIM
+
+```bat
+fsutil behavior query DisableDeleteNotify
+```
+
+Resultado esperado:
+
+```text
+DisableDeleteNotify = 0
+```
+
+---
+
+# Monitorar RAM
+
+```bat
+resmon
+```
+
+ou:
+
+```bat
+taskmgr
+```
+
+---
+
+# Temperaturas
+
+Ferramentas úteis:
+
+- HWMonitor
+- HWiNFO64
+- MSI Afterburner
+
+---
+
+# Reinício final recomendado
+
+```text
+REINICIE O COMPUTADOR
+```
+
+Para aplicar:
+
+- Tweaks
+- Serviços
+- Drivers
+- Registro
+- Power Plan
+- Cache rebuild
+
+---
