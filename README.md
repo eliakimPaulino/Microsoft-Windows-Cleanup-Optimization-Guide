@@ -165,3 +165,44 @@ Melhor sequência prática
 3. GPU official updater
 4. chipset/site fabricante
 5. driverquery /v
+
+N A V E G A D O R CHROME
+
+1. Ativar a Economia de Memória
+
+Essa função coloca abas inativas em "suspensão", economizando muita memória RAM e deixando o PC mais fluido.
+- Abra o Chrome e clique nos três pontinhos no canto superior direito.
+- Vá em Configurações.No menu lateral esquerdo, clique em Desempenho.
+- Ative a Economia de memória. Pode escolher o nível entre "Equilibrada" ou "Máximo".
+
+2. Desativar aplicativos em segundo plano
+
+Evita que o navegador continue rodando e consumindo recursos mesmo depois que você o fecha.
+- Configurações, clique em Sistema no menu lateral esquerdo.
+- Desative a opção Executar aplicativos em segundo plano quando o Google Chrome estiver fechado.
+
+3. Remover extensões que você não usa
+
+As extensões ficam rodando o tempo todo e pesam bastante no navegador.
+- Acesse a página chrome://extensions/ diretamente na barra de pesquisa.
+- Analise sua lista e clique em Remover em todas as extensões que não são essenciais para você.
+
+4. Limpar o cache e dados de navegação
+
+Arquivos temporários acumulados podem deixar o carregamento lento.
+
+- Pressione as teclas Ctrl + Shift + Del no seu teclado.
+- Em "Período", selecione Todo o período.
+- Marque apenas Imagens e arquivos armazenados em cache e Cookies e outros dados do site (evite apagar senhas, a menos que necessário).
+- Clique em Limpar dados.
+
+5. Ajustar a Aceleração de Hardware
+
+- Vá em Configurações > Sistema.
+- Se você tem um PC mais simples ou usa apenas placa de vídeo integrada, desative a Usar aceleração gráfica quando disponível. 
+- Se você possui uma placa de vídeo dedicada (como NVIDIA ou AMD), deixe essa opção ativada para melhorar o desempenho.
+
+6. Atualizar o navegador
+
+Manter o Chrome na versão mais recente corrige falhas de segurança e melhora o desempenho.
+- Vá em Configurações > Ajuda (no menu lateral) > Sobre o Google Chrome para verificar se há atualizações.
