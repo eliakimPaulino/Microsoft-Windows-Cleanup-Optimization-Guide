@@ -965,7 +965,7 @@ driverquery /v
 
 ---
 
-# Google Chrome Optimization
+# 3° seção - Google Chrome Optimization
 
 # 1. Ativar Economia de Memória
 
