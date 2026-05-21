@@ -522,3 +522,24 @@ Para aplicar:
 - Cache rebuild
 
 ---
+
+# 🚀 Otimizando o Windows: Desativando Serviços Desnecessários
+
+## ⚠️ Antes de começar
+Este procedimento pode melhorar o desempenho do Windows reduzindo o consumo de RAM, CPU e processos em segundo plano.
+
+No exemplo do vídeo:
+- Antes: **147 processos**
+- Depois: **81 processos**
+
+---
+
+# 🛡️ PASSO 1 — Criar um ponto de restauração
+
+## Como fazer
+
+1. Abra o menu **Iniciar**
+2. Pesquise por:
+
+```text
+Criar ponto de restauração
